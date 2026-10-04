@@ -165,4 +165,34 @@
   button, a, input {
     -webkit-tap-highlight-color: transparent;
   }
+
+  ::selection {
+    background: #b9a8ff;
+    color: #171719;
+  }
+}
+
+@keyframes float-card {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-14px) rotate(-2deg); }
+}
+
+@keyframes float-note {
+  0%, 100% { transform: translateY(0) rotate(4deg); }
+  50% { transform: translateY(12px) rotate(2deg); }
+}
+
+@keyframes pulse-orb {
+  0%, 100% { transform: scale(1); opacity: .8; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.dashboard-card { animation: float-card 7s ease-in-out infinite; }
+.floating-note { animation: float-note 6s ease-in-out infinite; }
+.orb { position: absolute; border-radius: 9999px; filter: blur(2px); animation: pulse-orb 8s ease-in-out infinite; }
+.orb-one { right: 2%; top: 0; height: 270px; width: 270px; background: #b9a8ff; opacity: .8; }
+.orb-two { bottom: 8%; left: 20%; height: 150px; width: 150px; background: #91ded0; opacity: .75; animation-delay: -3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
 }
